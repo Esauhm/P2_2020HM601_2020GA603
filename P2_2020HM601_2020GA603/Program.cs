@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using P2_2020HM601_2020GA603.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<DBCovidContext>(options =>
+    options.UseSqlServer(
+                builder.Configuration.GetConnectionString("covidDbConnection")
+        )
+
+);
 
 var app = builder.Build();
 
