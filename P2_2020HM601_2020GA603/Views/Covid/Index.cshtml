@@ -17,27 +17,27 @@
 
             <div class="col-sm-6">
                 @Html.Label("lblDepartamento","Departamento")
-                @Html.DropDownList("departamento_id",ViewData["listaDeDepartamentos"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
+                @Html.DropDownList("id_departamento",ViewData["listaDeDepartamentos"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
             </div>
 
             <div class="col-sm-6">
                 @Html.Label("lblGenero","Genero")
-                @Html.DropDownList("genero_id",ViewData["listaDeGeneros"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
+                @Html.DropDownList("id_genero",ViewData["listaDeGeneros"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
             </div>
         </div>
 
         <div class="form-group row mb-4">
             <div class="col-sm-4">
                 @Html.Label("lblCasosConfirmados","Casos Confirmados")
-                @Html.TextBox("casos_confirmados","",new {@class="form-control mt-3"})
+                @Html.TextBox("confirmados","",new {@class="form-control mt-3"})
             </div>
             <div class="col-sm-4">
                 @Html.Label("lblNumRecuperados","Numero de Recuperados")
-                @Html.TextBox("num_recuperados","",new {@class="form-control mt-3"})
+                @Html.TextBox("recuperados","",new {@class="form-control mt-3"})
             </div>
             <div class="col-sm-4">
                 @Html.Label("lblNumFallecidos","Numero de Fallecidos")
-                @Html.TextBox("num_fallecidos","",new {@class="form-control mt-3"})
+                @Html.TextBox("fallecidos","",new {@class="form-control mt-3"})
             </div>
 
         </div>
@@ -57,6 +57,7 @@
                 <th>Departamento</th>
                 <th>Genero</th>
                 <th>Confirmados</th>
+                <th>Recuperados</th>
                 <th>Fallecidos</th>
             </tr>
         </thead>
