@@ -1,10 +1,10 @@
-﻿@model IEnumerable<P2_2020HM601_2020GA603.Models.Departamento>
+﻿@model IEnumerable<P2_2020HM601_2020GA603.Models.Genero>
 
 @{
-    ViewData["Title"] = "Departamentos";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Departamentos</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                @Html.DisplayNameFor(model => model.genero)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.estado)
@@ -25,15 +25,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.genero)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.estado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_departamento">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_departamento">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_departamento">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.id_genero">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_genero">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_genero">Delete</a>
             </td>
         </tr>
 }
