@@ -6,43 +6,47 @@
 
 <div class="container">
     <H1 style="text-align:center;">Registros de Covid</H1>
-    <H2 style="text-align:center;">El siguiente formulario es para llevar el registro de casos reportados de <br>Covid por departamento</H2>
+    <H2 style="text-align:center; t">El siguiente formulario es para llevar el registro de casos reportados de <br>Covid por departamento</H2>
 
-    <div class="mt-5">
+    <div class="mt-3">
         <h3>Reportar Casos</h3>
     </div>
 
-    <form asp-action="Create">
+    <form class="mt-5" asp-action="Create">
         <div class="form-group row mb-4">
-            <div class="col-sm-2">
-                @Html.Label("lblTipoEquipo","Tipo de Equipo")
+
+            <div class="col-sm-6">
+                @Html.Label("lblDepartamento","Departamento")
+                @Html.DropDownList("departamento_id",ViewData["listaDeDepartamentos"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
             </div>
-            <div class="col-sm-4">
-                @Html.DropDownList("tipo_equipo_id")
+
+            <div class="col-sm-6">
+                @Html.Label("lblGenero","Genero")
+                @Html.DropDownList("genero_id",ViewData["listaDeDepartamentos"] as SelectList,"Seleccione un tipo",new {@class="form-control mt-3"})
             </div>
         </div>
 
         <div class="form-group row mb-4">
-            <div class="col-sm-2">
-                @Html.Label("lblAnioCompra","Año de Compra")
+            <div class="col-sm-4">
+                @Html.Label("lblCasosConfirmados","Casos Confirmados")
+                @Html.TextBox("casos_confirmados","",new {@class="form-control mt-3"})
             </div>
             <div class="col-sm-4">
-                @Html.TextBox("anio_compra","",new {@class="form-control"})
-            </div>
-            <div class="col-sm-2">
-                @Html.Label("lblCosto","Costo")
+                @Html.Label("lblNumRecuperados","Numero de Recuperados")
+                @Html.TextBox("num_recuperados","",new {@class="form-control mt-3"})
             </div>
             <div class="col-sm-4">
-                @Html.TextBox("costo","",new {@class="form-control"})
+                @Html.Label("lblNumFallecidos","Numero de Fallecidos")
+                @Html.TextBox("num_fallecidos","",new {@class="form-control mt-3"})
             </div>
+
         </div>
 
-        <div class="form-group row mb-4">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4">
-                <input type="submit" class="btn btn-primary" value="Guardar" />
-            </div>
+        <div class="form-group row sm-12 mb-5">
+            <input type="submit" class="btn btn-block btn-success" value="Guardar Registro" />
         </div>
+
+        <hr/>
     </form>
 
 
