@@ -29,6 +29,19 @@ namespace P2_2020HM601_2020GA603.Controllers
             //ViewData["listaDeGeneros"] = new SelectList(listaDeGeneros, "id_genero", "genero");
 
 
+
+            //var listadoDeEquipos = (from e in _equiposDbContext.equipos
+            //                        join m in _equiposDbContext.marcas on e.marca_id equals m.id_marcas
+            //                        select new
+            //                        {
+            //                            nombre = e.nombre,
+            //                            descripcion = e.descripcion,
+            //                            marca_id = e.marca_id,
+            //                            marca_nombre = m.nombre_marca
+            //                        }).ToList();
+            //ViewData["listadoDeEquipos"] = listadoDeEquipos;
+
+
             return View();
         }
     }
