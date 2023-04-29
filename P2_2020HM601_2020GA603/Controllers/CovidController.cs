@@ -30,17 +30,18 @@ namespace P2_2020HM601_2020GA603.Controllers
 
 
 
-            var listadoDeCasos = (from e in _CovidDbContext.casosResportados
+            var listadoDeCasos = (from e in _CovidDbContext.casosReportados
                                   join d in _CovidDbContext.departamentos on e.id_departamento equals d.id_departamento
-                                  join g in _CovidDbContext.generos on e.id_generos equals g.id_genero
+                                  join g in _CovidDbContext.generos on e.id_genero equals g.id_genero
                                   select new
                                     {
+                                        
+                                        confirm = e.confirmados,
+                                        recuper = e.recuperados,
+                                        fallec = e.fallecidos,
                                         departamentos = d.nombre,
-                                        genero = g.genero,
-                                        confirmados = e.confirmados,
-                                        recuperados = e.recuperados,
-                                        fallecidos = e.fallecidos
-                                    }).ToList();
+                                        generos = g.genero
+                                  }).ToList();
 
 
             ViewData["listadoDeCasos"] = listadoDeCasos;
@@ -49,7 +50,7 @@ namespace P2_2020HM601_2020GA603.Controllers
             return View();
         }
 
-        public IActionResult CrearCasos(CasoReportado nuevoCaso)
+        public IActionResult CrearCasos(CasosReportados nuevoCaso)
         {
             _CovidDbContext.Add(nuevoCaso);
             _CovidDbContext.SaveChanges();
