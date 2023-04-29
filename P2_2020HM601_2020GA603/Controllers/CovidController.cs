@@ -23,26 +23,37 @@ namespace P2_2020HM601_2020GA603.Controllers
 
 
             //lista de generos
-            //var listaDeGeneros = (from m in _CovidDbContext.generos
-            //                            select m).ToList();
+            var listaDeGeneros = (from m in _CovidDbContext.generos
+                                  select m).ToList();
 
-            //ViewData["listaDeGeneros"] = new SelectList(listaDeGeneros, "id_genero", "genero");
+            ViewData["listaDeGeneros"] = new SelectList(listaDeGeneros, "id_genero", "genero");
 
 
 
-            //var listadoDeEquipos = (from e in _equiposDbContext.equipos
-            //                        join m in _equiposDbContext.marcas on e.marca_id equals m.id_marcas
-            //                        select new
-            //                        {
-            //                            nombre = e.nombre,
-            //                            descripcion = e.descripcion,
-            //                            marca_id = e.marca_id,
-            //                            marca_nombre = m.nombre_marca
-            //                        }).ToList();
-            //ViewData["listadoDeEquipos"] = listadoDeEquipos;
+            var listadoDeCasos = (from e in _CovidDbContext.casosresportados
+                                  join d in _CovidDbContext.departamentos on e.id_departamento equals d.id_departamento
+                                  join g in _CovidDbContext.generos on e.id_generos equals g.id_genero
+                                  select new
+                                    {
+                                        departamento = d.nombre,
+                                        genero = g.genero,
+                                        confirmados = e.confirmados,
+                                        recuperados = e.recuperados,
+                                        fallecidos = e.fallecidos
+                                    }).ToList();
+
+
+            ViewData["listadoDeCasos"] = listadoDeCasos;
 
 
             return View();
+        }
+
+        public IActionResult CrearCasos(CasoReportado nuevoCaso)
+        {
+            _CovidDbContext.Add(nuevoCaso);
+            _CovidDbContext.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

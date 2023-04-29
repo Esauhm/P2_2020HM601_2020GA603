@@ -9,5 +9,7 @@ namespace P2_2020HM601_2020GA603.Models
         public int confirmados { get; set; }
         public int recuperados { get; set; }
         public int fallecidos { get; set; }
+        public int id_departamento { get; set; }
+        public int id_generos { get; set; }
     }
 }
