@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <H1 style="text-align:center;">Registros de Covid</H1>
+    <H2 style="text-align:center;">El siguiente formulario es para llevar el registro de casos reportados de <br>Covid por departamento</H2>
+
+    <div class="mt-5">
+        <h3>Reportar Casos</h3>
+    </div>
+
+    <form asp-action="Create">
+        <div class="form-group row mb-4">
+            <div class="col-sm-2">
+                @Html.Label("lblTipoEquipo","Tipo de Equipo")
+            </div>
+            <div class="col-sm-4">
+                @Html.DropDownList("tipo_equipo_id")
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-sm-2">
+                @Html.Label("lblAnioCompra","Año de Compra")
+            </div>
+            <div class="col-sm-4">
+                @Html.TextBox("anio_compra","",new {@class="form-control"})
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("lblCosto","Costo")
+            </div>
+            <div class="col-sm-4">
+                @Html.TextBox("costo","",new {@class="form-control"})
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <input type="submit" class="btn btn-primary" value="Guardar" />
+            </div>
+        </div>
+    </form>
+
+
+</div>
