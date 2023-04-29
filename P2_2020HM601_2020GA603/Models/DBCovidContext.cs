@@ -11,5 +11,6 @@ namespace P2_2020HM601_2020GA603.Models
         }
 
         //public DbSet<Marcas> marcas { get; set; }
+        public DbSet<Departamento> departamentos { get; set; }
     }
 }
