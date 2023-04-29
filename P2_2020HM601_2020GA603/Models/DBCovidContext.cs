@@ -15,7 +15,7 @@ namespace P2_2020HM601_2020GA603.Models
 
         public DbSet<Generos> generos { get; set; }
 
-        public DbSet<CasoReportado> casosresportados { get; set; }
+        public DbSet<CasoReportado> casosResportados { get; set; }
 
     }
 }

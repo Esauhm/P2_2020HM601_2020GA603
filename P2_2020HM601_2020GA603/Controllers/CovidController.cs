@@ -30,12 +30,12 @@ namespace P2_2020HM601_2020GA603.Controllers
 
 
 
-            var listadoDeCasos = (from e in _CovidDbContext.casosresportados
+            var listadoDeCasos = (from e in _CovidDbContext.casosResportados
                                   join d in _CovidDbContext.departamentos on e.id_departamento equals d.id_departamento
                                   join g in _CovidDbContext.generos on e.id_generos equals g.id_genero
                                   select new
                                     {
-                                        departamento = d.nombre,
+                                        departamentos = d.nombre,
                                         genero = g.genero,
                                         confirmados = e.confirmados,
                                         recuperados = e.recuperados,
